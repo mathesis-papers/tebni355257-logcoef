@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24406608",
     "current_version": 2,
-    "doi": null,
+    "doi": "10.5281/zenodo.24406609",
     "lean_source": {
       "revision": "3978330935ee256403f739686c6ae335ea620e68",
       "url": "https://github.com/the-omega-institute/trureturing/blob/3978330935ee256403f739686c6ae335ea620e68/D5/S3/Arith/Congruence/TebniA355257Divisibility.lean"
