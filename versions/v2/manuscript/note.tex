@@ -1,0 +1,534 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array,longtable}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Nzero}{\mathbb{Z}_{\geq0}}
+\newcommand{\rise}[2]{#1^{\overline{#2}}}
+\title{Sharp quotients and column polynomials:\\
+alternative proofs for OEIS A355257, revision 37, Comments,\\
+after Benyattou--Mihoubi (2017) and Fried (2025)}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\
+\small ChronoAI Pte Ltd, Singapore}
+\date{November 6, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+With alternative prime-residue proofs following Benyattou and
+Mihoubi (2017, Proposition~8) and Fried (2025, Theorem~1), we prove
+the four statements labelled ``Conjecture'' in
+Luschny and Tebni's OEIS entry A355257, revision~37, Comments,
+including its A355259 column-polynomial statement.
+For the logarithmic coefficient array $A(n,k)$, every prime column
+has residue $-1$, and $k\mid A(n,k)$ holds exactly for nonprime
+$k\geq1$, apart from $k=4$, whose residue is always~$2$.
+The quotient $A(n,p)/(p-1)$ is integral and congruent to~$1$ modulo~$p$
+for every even row; evenness is necessary only at $p=3,5$.
+A factorial coefficient expansion also gives fixed-row recurrences,
+asymptotics, and an integer-parameter extension.
+\end{abstract}
+
+\section{The array and the result}
+Work in the ring $\mathbb{Q}[[x]]$ of formal power series. For
+$n,k\in\Nzero$, define
+\begin{equation}\label{eq:def}
+ A(n,k)=k![x^k]\frac{\log((1-x)/(1-2x))}{(1-x)^n}.
+\end{equation}
+This is the coefficient expression in A355257~\cite{oeis}; here it is
+used for every pair of nonnegative indices. In particular $A(n,0)=0$.
+The Comments of revision~37 (April~13, 2025) contain four statements labelled
+``Conjecture'': the prime residue, the divisibility classification,
+the polynomial description linked to A355259, and the prime quotient
+for even rows. The last two are explicitly attributed to M\'elika
+Tebni, July~4, 2022. The entry's authors are Peter Luschny and
+M\'elika Tebni.
+
+The prime-residue assertion already follows from the Lah-polynomial
+congruence of Benyattou and Mihoubi~\cite[Proposition~8]{bm2017},
+published online on November~8, 2017, by the identification below.
+Fried~\cite[Lemma~1 and Theorem~1]{friedfirst} explicitly proved the prime
+residue for the row $n=3$, namely A355372; the OEIS records his
+proof on December~17, 2025 (history revisions~9--10, with a corrected
+PDF linked in revision~15). He later included it
+in~\cite[Section~3.9, Lemma~51 and Theorem~52, pp.~52--53]{fried}.
+His argument isolates the final factorial summand and applies
+Wilson's theorem. We give self-contained proofs from the two coefficient
+sums already recorded in A355257, Formula (July~2, 2022, history revision~16),
+and examine the quotient and polynomial consequences. These coefficient
+formulas and the all-row prime congruence are not presented as new results.
+
+\paragraph{Connection with earlier Lah theorems.}
+For $k,r\in\Nzero$, let $\mathcal L_{k,r}(u)=\sum_{j=0}^k L_r(k,j)u^j$ denote the
+$r$-Lah polynomial. The coefficient formula of
+Nyul and R\'acz~\cite[Theorems~3.7 and~3.10]{nyul}, also stated
+by Karg{\i}n and Can~\cite[Section~2, (5)--(6)]{kargin}, gives
+\[
+ L_r(k,j)=\frac{k!}{j!}\binom{k+2r-1}{k-j}.
+\]
+For $k\geq1$, this formula is used when $j+r>0$; for $r=j=0$
+the coefficient is zero. Also $\mathcal L_{0,r}=1$.
+Define an integer-linear map $\Phi:\mathbb Z[u]\to\mathbb Z$ by
+$\Phi(1)=0$ and $\Phi(u^j)=(j-1)!$ for $j\geq1$.
+Equation~\eqref{eq:alternate} then gives
+$\Phi(\mathcal L_{k,r})=A(2r,k)$.
+At $r=0$, Benyattou--Mihoubi's Proposition~8 states
+\[
+ \mathcal L_{mp+q,0}(u)\equiv u^{mp}\mathcal L_{q,0}(u)\pmod p
+ \quad(m,q\geq0,\ p\text{ prime}).
+\]
+Put $m=1,q=0$ and apply $\Phi$: $A(0,p)\equiv(p-1)!\equiv-1\pmod p$.
+The row identity
+$A(n+1,k)-A(n,k)=kA(n+1,k-1)$, proved in
+Corollary~\ref{cor:identities}, propagates the residue to every row.
+Thus the all-row prime congruence is a consequence of that earlier theorem.
+The earlier articles state Lah-polynomial congruences, not the later OEIS
+conjectures themselves.
+The $r$-Lah version appears in Benyattou's thesis~\cite[Section~2.4,
+Proposition~27, pp.~48--49]{thesis} (public defense, November~27, 2018)
+and Benyattou--Mihoubi~\cite[Proposition~2, p.~576]{bm2021} (2021);
+the same map gives every even row directly.
+Fried's explicit row-three theorem likewise propagates to every row by
+the row identity. Its literal statement concerns row three.
+
+\begin{theorem}\label{thm:main}
+The values $A(n,k)$ are integers for all $n,k\in\Nzero$.
+For every such $n$ the following hold.
+\begin{enumerate}
+\item For every prime $p$, $A(n,p)\equiv-1\pmod p$.
+\item For $k\geq1$, $k\ne4$,
+\[
+ k\mid A(n,k)\quad\Longleftrightarrow\quad k\text{ is not prime}.
+\]
+At the excluded index, $A(n,4)\equiv2\pmod4$.
+\item If $p=2$ or $p\geq7$ is prime, then $A(n,p)/(p-1)$ is an
+integer congruent to $1$ modulo $p$ for every $n$.
+For $p\in\{3,5\}$, it is an integer if and only if $n$ is even;
+whenever it is an integer, its residue modulo $p$ is~$1$.
+\end{enumerate}
+\end{theorem}
+
+\section{A coefficient sum and the divisibility criterion}
+Set $B_n(t)=[x^t](1-x)^{-n}$. These are integers: for $n\geq1$,
+$B_n(t)=\binom{n+t-1}{t}$; for $n=0$, $B_0(0)=1$ and
+$B_0(t)=0$ for $t>0$. In particular $B_n(0)=1$ and $B_n(1)=n$.
+The formal logarithm identity
+\[
+ \log\frac{1-x}{1-2x}=\sum_{j\geq1}\frac{2^j-1}{j}x^j
+\]
+gives, for $k\geq1$,
+\begin{equation}\label{eq:sum}
+ A(n,k)=\sum_{j=1}^k\frac{k!}{j}(2^j-1)B_n(k-j).
+\end{equation}
+Every summand is an integer, since $j\mid k!$.
+For $j<k$, the stronger relation $j\mid(k-1)!$ shows that
+$k\mid k!/j$. Consequently
+\begin{equation}\label{eq:reduction}
+ A(n,k)\equiv(k-1)!(2^k-1)\pmod k\qquad(k\geq1).
+\end{equation}
+This also explains why the residue is independent of the row.
+The alternate coefficient sum~\eqref{eq:alternate} in fact gives the
+simpler residue $A(n,k)\equiv(k-1)!\pmod k$: its terms with $j<k$
+are multiples of $k$, and its final binomial coefficient is one.
+
+For a prime $p$, Wilson's theorem gives $(p-1)!\equiv-1\pmod p$,
+and $2^p\equiv2\pmod p$ gives $2^p-1\equiv1\pmod p$.
+The latter congruence includes $p=2$. Equation~\eqref{eq:reduction}
+therefore proves part~1 of Theorem~\ref{thm:main}.
+
+\begin{lemma}\label{lem:factorial}
+If $m>1$ is composite and $m\ne4$, then $m\mid(m-1)!$.
+\end{lemma}
+\begin{proof}
+Write $m=ab$, with $2\leq a\leq b<m$. If $a<b$, the distinct
+factors $a$ and $b$ occur in $(m-1)!$. If $a=b$, then $m=a^2$.
+The case $a=2$ is excluded, so $a\geq3$. Now $a$ and $2a$ are
+distinct integers less than $a^2$; their product is $2a^2$, a
+multiple of $m$, and both occur in $(m-1)!$.
+\end{proof}
+
+For composite $k\ne4$, the lemma and~\eqref{eq:reduction} give
+$k\mid A(n,k)$. For prime $k$, the residue $-1$ rules out this
+divisibility. For $k=1$, divisibility holds and $1$ is not prime.
+Finally, for $k=4$, the right side of~\eqref{eq:reduction} is
+$3!(2^4-1)=90\equiv2\pmod4$. This proves part~2.
+
+\section{The prime quotient and the exact parity restriction}
+Let $p$ be prime. In~\eqref{eq:sum} with $k=p$, every summand
+with $1\leq j<p-1$ is divisible by $p-1$, because
+\[
+ \frac{p!}{j}=p(p-1)\frac{(p-2)!}{j}.
+\]
+The last summand, $(p-1)!(2^p-1)$, is also divisible by $p-1$.
+Only $j=p-1$ remains. Since $B_n(1)=n$, we obtain
+\begin{equation}\label{eq:pred}
+ A(n,p)\equiv p(p-2)!(2^{p-1}-1)n\pmod{p-1}.
+\end{equation}
+For $p=2$ the modulus is~$1$, so integrality is automatic.
+For $p\geq7$, $p-1$ is composite and is not~$4$.
+Lemma~\ref{lem:factorial}, applied to $p-1$, gives
+$p-1\mid(p-2)!$, so integrality holds in every row.
+For the remaining primes, equation~\eqref{eq:pred} reads
+\[
+ A(n,3)\equiv9n\equiv n\pmod2,\qquad
+ A(n,5)\equiv450n\equiv2n\pmod4.
+\]
+Thus integrality is equivalent to evenness of $n$ in these two cases.
+Whenever $A(n,p)=(p-1)q$ with $q\in\mathbb{Z}$, part~1 gives
+$-q\equiv-1\pmod p$, hence $q\equiv1\pmod p$.
+This proves part~3 and, in particular, Tebni's even-row conjecture.
+The odd-row obstructions already occur at $A(1,3)=29$ and
+$A(1,5)=1774$.
+
+\section{The polynomial-column conjecture and related rows}
+For $t\geq0$, let $\rise{z}{t}=z(z+1)\cdots(z+t-1)$,
+with $\rise{z}{0}=1$. The identity
+$B_n(t)=\rise{n}{t}/t!$ holds also at $n=0$ with the conventions
+above. Thus~\eqref{eq:sum} yields a polynomial formula with integer
+coefficients:
+\begin{equation}\label{eq:polynomial}
+ P_k(z)=\sum_{j=1}^k\binom{k}{j}(j-1)!(2^j-1)\rise{z}{k-j},
+ \qquad A(n,k)=P_k(n).
+\end{equation}
+For $k\geq1$, its degree is $k-1$ and its leading coefficient is
+$k$, because only the $j=1$ summand has that degree. All its
+coefficients are nonnegative integers.
+
+\begin{corollary}\label{cor:polynomial}
+The polynomial obtained by interpolating the points
+$(n,A(n,k+1))$ for $0\leq n\leq k$ equals $P_{k+1}$ and gives
+$A(n,k+1)$ for every $n\in\Nzero$.
+\end{corollary}
+\begin{proof}
+Equation~\eqref{eq:polynomial} supplies a polynomial of degree $k$
+with the prescribed $k+1$ values. Uniqueness of interpolation proves
+the assertion. This is exactly the construction of row $k$ in
+A355259~\cite[Name, Comments and Maple program]{polynomials}.
+\end{proof}
+For example, $P_3(z)=3z^2+12z+14$ and
+$P_4(z)=4z^3+30z^2+82z+90$, matching rows~2 and~3 of A355259.
+
+\begin{corollary}\label{cor:rows}
+The fixed rows $n=0,1,2,3,4,5$ in A355257 are respectively
+A029767, A103213, A355171, A355372, A355407, and A355414.
+All inherit the prime residue and divisibility criterion.
+At $n=0,2,4$ all prime quotients above are integral;
+at $n=1,3,5$ exactly the primes $3,5$ fail integrality.
+For $n=0$, equation~\eqref{eq:sum} reduces to
+$A(0,k)=(k-1)!(2^k-1)$ for $k\geq1$.
+\end{corollary}
+\begin{proof}
+The row generating functions in the six cited entries~\cite{rows}
+are~\eqref{eq:def} at the indicated $n$. Apply
+Theorem~\ref{thm:main}; for $n=0$ only $j=k$ survives
+in~\eqref{eq:sum}. In particular this proves the prime-residue
+conjectures explicitly posed in A355407 and A355414,
+and reproves Fried's A355372 theorem.
+\end{proof}
+
+\begin{corollary}\label{cor:identities}
+For $n\geq0$, $k\geq1$,
+\begin{equation}\label{eq:alternate}
+ A(n,k)=k!\sum_{j=1}^k\frac1j\binom{n+k-1}{k-j}.
+\end{equation}
+Put $P_0(z)=0$. Then $P_k(z+1)-P_k(z)=kP_{k-1}(z+1)$ for
+$k\geq1$, and
+\[
+ \sum_{k\geq0}P_{k+1}(z)\frac{x^k}{k!}
+ =\frac{z\log((1-x)/(1-2x))+(1-2x)^{-1}}{(1-x)^{z+1}}.
+\]
+\end{corollary}
+\begin{proof}
+The identity
+$\log((1-x)/(1-2x))=\sum_{j\geq1}x^j/(j(1-x)^j)$ gives
+\eqref{eq:alternate}, extending Fried's Lemma~1 from row three.
+Writing $F_z(x)=(1-x)^{-z}\log((1-x)/(1-2x))$, we have
+$F_{z+1}-F_z=xF_{z+1}$ and the displayed series is $F_z'$.
+Coefficient comparison proves both assertions, first for nonnegative
+integer $z$ and then as polynomial identities in $z$.
+Putting $j=r+1$ in~\eqref{eq:alternate} and using
+\[
+ \frac{\binom{n+k-1}{k-r-1}}{\binom{n+k-1}{k-1}}
+ =\frac{(-1)^r(1-k)^{\overline r}}{(n+1)^{\overline r}}
+\]
+also gives the terminating ${}_3F_2$ formula in A355257, Formula,
+and its fixed-row specializations.
+\end{proof}
+
+\section{Recurrences, asymptotics and an integer-parameter extension}
+\begin{corollary}\label{cor:recurrence}
+Fix $n\geq0$ and put $a_k=A(n,k)$. For $k\geq2$,
+\begin{equation}\label{eq:recurrence}
+ a_k=(3(k-1)+n)a_{k-1}
+ -2(k-1)(k-2+n)a_{k-2}+n^{\overline{k-1}},
+\end{equation}
+with $a_0=0$, $a_1=1$. For $r\geq0$,
+\begin{align*}
+ a_{r+3}={}&(4r+2n+7)a_{r+2}\\
+ &-[5r^2+(6n+12)r+n^2+8n+7]a_{r+1}\\
+ &+2(r+1)(r+n+1)(r+n)a_r.
+\end{align*}
+These include the recurrences in A029767 (Mathar, 2013),
+A103213 (Israel, 2015), A355372 (Tebni, 2026)
+and A355414 (Mathar, 2022).
+\end{corollary}
+\begin{proof}
+For $F=F_n$, differentiation gives
+\[
+ (1-x)(1-2x)F'-n(1-2x)F=(1-x)^{-n}.
+\]
+Compare the coefficient of $x^{k-1}$ and multiply by $(k-1)!$
+to obtain~\eqref{eq:recurrence}. Apply $(1-x)d/dx-n$ to the
+same identity. Its right side becomes zero and its left side becomes
+\[
+ (1-x)^2(1-2x)F''
+ -(1-x)[2n+3-(4n+4)x]F'
+ +n[n+2-2(n+1)x]F.
+\]
+The coefficient of $x^{r+1}/(r+1)!$ gives the second recurrence.
+At $n=0$ the last term in~\eqref{eq:recurrence} vanishes;
+at $n=1,5$ the second recurrence is exactly the respective cited formula.
+At $n=3$, the first becomes
+$a_k=3k a_{k-1}-2(k^2-1)a_{k-2}+(k+1)!/2$,
+the formula in A355372 (March~20, 2026).
+\end{proof}
+
+\begin{corollary}\label{cor:asymptotic}
+For every fixed nonnegative integer $n$,
+$A(n,k)\sim2^{k+n}(k-1)!$ as $k\to\infty$.
+At $n=1,2$ these are the formulas recorded in A103213 by Alcover (2013)
+and A355171 by Kotesovec (2024), respectively.
+\end{corollary}
+\begin{proof}
+For $n=0$ use Corollary~\ref{cor:rows}. For $n\geq1$, rewrite
+\eqref{eq:sum} as
+\[
+ \frac{A(n,k)}{2^k(k-1)!}
+ =\sum_{r=0}^{k-1}\frac{k}{k-r}(2^{-r}-2^{-k})B_n(r).
+\]
+On $r\leq k/2$ the summands are bounded by $2^{1-r}B_n(r)$,
+a summable sequence, and converge termwise to $2^{-r}B_n(r)$.
+Since $B_n(r)\leq C_n(r+1)^{n-1}$, the remaining tail is bounded
+by $C_n k^n\sum_{r>k/2}2^{-r}$, which tends to zero.
+The limit is $\sum_{r\geq0}2^{-r}B_n(r)=(1-1/2)^{-n}=2^n$.
+\end{proof}
+
+\begin{corollary}\label{cor:extension}
+For integers $b,n$, let
+$C_b(n,k)=k![x^k](1-x)^{-n}\log((1-x)/(1-bx))$.
+These are integers, and for $k\geq1$ and every prime $p$,
+\[
+ C_b(n,k)\equiv(k-1)!(b^k-1)\pmod k,\qquad
+ C_b(n,p)\equiv1-b\pmod p.
+\]
+Every composite $k\ne4$ divides $C_b(n,k)$; a prime $p$ divides
+$C_b(n,p)$ exactly when $p\mid b-1$; and $4\mid C_b(n,4)$
+exactly when $b$ is odd.
+The quotient $C_b(n,p)/(p-1)$ is integral for every $n$ if
+$p=2$, $p\geq7$ or $b$ is odd. For even $b$ and $p=3,5$ it is
+integral exactly when $n$ is even. Each integral quotient has
+residue $b-1$ modulo $p$.
+\end{corollary}
+\begin{proof}
+For negative $n$, $B_n(t)=(-1)^t\binom{-n}{t}$, so the
+coefficients remain integers and $B_n(1)=n$ for all integer $n$.
+Replace $2^j-1$ by $b^j-1$ in~\eqref{eq:sum} and repeat
+\eqref{eq:reduction} and~\eqref{eq:pred}; Wilson and
+$b^p\equiv b\pmod p$ give the prime residue. At column four the
+residue is $6(b^4-1)$ modulo four. Modulo $p-1$ the surviving
+term is $p(p-2)!(b^{p-1}-1)n$.
+For $p=3$ it reduces to $(b^2-1)n$ modulo two;
+for $p=5$ it reduces to $2(b^4-1)n$ modulo four.
+The parity alternatives follow; the factorial lemma handles $p\geq7$.
+Finally $(p-1)q\equiv1-b\pmod p$ gives $q\equiv b-1\pmod p$.
+\end{proof}
+This extension is not posed in the cited entries. In particular, their
+even-row quotient conjecture does not assert a converse: odd rows
+work at every prime other than $3,5$.
+
+\begin{corollary}\label{cor:negative}
+The entry A355258 is $C_2(-1,k)$. Its formulas of Kotesovec (2022)
+and Meya (2024) hold: for $k\geq2$,
+\[
+ C_2(-1,k)=[1+2^{k-1}(k-2)](k-2)!
+ =k!\sum_{r=0}^{k-2}\frac{\binom{k-2}{r}}{r+2}.
+\]
+\end{corollary}
+\begin{proof}
+Multiplication by $1-x$ gives
+$C_2(-1,k)=A(0,k)-kA(0,k-1)$, and Corollary~\ref{cor:rows}
+gives the closed form. Alternatively expand
+$(1-x)\sum_{j\geq1}x^j/(j(1-x)^j)$.
+For $k\geq2$ only $2\leq j\leq k$ contribute, yielding
+$k!\sum_{j=2}^k\binom{k-2}{k-j}/j$; put $r=j-2$.
+\end{proof}
+
+\section{Coverage of the posing source and its siblings}
+
+\begin{center}
+\small
+\begin{longtable}{@{}p{.42\linewidth}p{.51\linewidth}@{}}
+\toprule
+Source statement & Coverage \\
+\midrule
+A355257 Comments: prime residue & Reproved, Theorem~\ref{thm:main}(1);
+consequence of prior theorem Benyattou--Mihoubi (2017),
+Proposition~8, via $\Phi$ and the row identity. Explicit row-three
+proof Fried (2025), Theorem~1; Fried (2026), Theorem~52. \\
+A355257 Comments: divisibility, $k\ne4$ & Proved,
+Theorem~\ref{thm:main}(2); the exceptional residue is determined. \\
+A355257 Comments: even-row quotient & Proved and strengthened,
+Theorem~\ref{thm:main}(3). \\
+A355257 and A355259 Comments: column polynomials & Proved,
+Corollary~\ref{cor:polynomial} and equation~\eqref{eq:polynomial}. \\
+A355407 and A355414 Comments: prime residue & Proved,
+Corollary~\ref{cor:rows}; each entry explicitly labels it a conjecture. \\
+A355171 prime residue & Not posed; proved as the row-two consequence
+in Corollary~\ref{cor:rows}. \\
+A355372 Comments: prime residue & Reproved; prior proof Fried (2025),
+Theorem~1; later presentation Fried (2026), Theorem~52. \\
+A355257 Formula; fixed-row binomial and terminating hypergeometric formulas
+& Proved, \eqref{eq:sum} and Corollary~\ref{cor:identities};
+the two coefficient sums were already recorded in July~2022. \\
+A029767, A103213, A355372, A355414 recurrences & Proved,
+Corollary~\ref{cor:recurrence}; source formulas Mathar (2013, 2022),
+Israel (2015), Tebni (2026). \\
+A355258 Formula: negative-row closed form and binomial sum & Proved,
+Corollary~\ref{cor:negative}; source formulas Kotesovec (2022), Meya (2024). \\
+A103213 and A355171 asymptotic formulas & Proved,
+Corollary~\ref{cor:asymptotic}; source formulas Alcover (2013),
+Kotesovec (2024). Rows $n=0,3,4,5$: not posed; proved. \\
+Integer $b,n$ extension; finite differences and column e.g.f.
+& Not posed; proved, Corollaries~\ref{cor:extension} and~\ref{cor:identities}. \\
+Odd-row quotient converse & Not asserted in the source;
+fails at $n=1,p=7$, where $A(1,7)=218868=6\cdot36478$. \\
+Other linked-entry combinatorial, Stirling-array, integral and
+nonterminating special-function descriptions & Not covered; no claim about
+their status is made. \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\section{Proof and computational coverage}
+The preceding sections give written proofs of all the stated results.
+The pinned Lean declarations in the
+\href{https://github.com/the-omega-institute/trureturing/blob/3978330935ee256403f739686c6ae335ea620e68/D5/S3/Arith/Congruence/TebniA355257Divisibility.lean}{divisibility module}
+and the
+\href{https://github.com/the-omega-institute/trureturing/blob/3978330935ee256403f739686c6ae335ea620e68/D5/S3/Arith/Congruence/TebniA355257Quotient.lean}{quotient module}~\cite{leanmain,leanquotient} express
+the coefficient formula over $\mathbb{Q}[[x]]$, with an integer witness
+for its values. In the namespace
+\nolinkurl{D5.S3.Arith.Congruence.TebniA355257Divisibility},
+\texttt{A\_eq\_Z} identifies the coefficient with the integer sum,
+\texttt{prime\_residue} gives the prime congruence,
+and \texttt{result} gives the divisibility equivalence for $k\geq1$, $k\ne4$.
+The same module's \texttt{even\_pred\_divides} gives divisibility by
+$p-1$ when $n$ is even and $p$ is prime.
+The declaration
+\nolinkurl{D5.S3.Arith.Congruence.TebniA355257Quotient.result}
+gives the integral prime quotient and its residue for even $n$.
+These declarations quantify natural $n,k$, with $p$ prime.
+The exact odd-row criterion, the $k=4$ residue, polynomial identities,
+recurrences, asymptotic and integer-parameter extension have the
+written proofs above.
+
+The accompanying \texttt{verify.py} compares the integer coefficient
+sum with a differential recurrence for $0\leq n\leq30$ and
+$0\leq k\leq200$. It checks every congruence and quotient condition
+on that rectangle, the polynomial identity for $1\leq k\leq12$
+on the same rows, and the nine displayed rows of A355259.
+It also checks the alternate sum and both recurrences on the rectangle,
+the finite differences through column~12, and the integer-parameter
+extension for $-3\leq b\leq5$, $-6\leq n\leq6$, $0\leq k\leq24$.
+The negative-row formulas are checked at degrees~2 through~24.
+The Lah identification is checked at 264 pairs with $0\leq r\leq5$
+and $0\leq k\leq43$. The earlier polynomial congruence is checked
+in 480 cases, with those six $r$ values, the eight primes through~19,
+$m=1,2$ and $q=0,1,2,3,4$.
+These are finite exact-arithmetic checks; the proofs above cover all indices.
+
+\begin{thebibliography}{99}
+\bibitem{oeis}
+P. Luschny and M. Tebni, OEIS A355257 (2022), revision~37,
+Name, Comments, Formula and Example.
+\url{https://oeis.org/A355257}.
+Revision history: \url{https://oeis.org/history?seq=A355257}.
+
+\bibitem{polynomials}
+P. Luschny, OEIS A355259 (2022), Name, Comments, Example and
+Maple program; conjecture attributed to M. Tebni.
+\url{https://oeis.org/A355259}.
+
+\bibitem{fried}
+S. Fried, \emph{Further proofs of conjectures from the OEIS},
+arXiv:2607.24832v1 (July~23, 2026), Section~3.9,
+Lemma~51 and Theorem~52, pp.~52--53.
+\url{https://arxiv.org/abs/2607.24832v1}.
+
+\bibitem{friedfirst}
+S. Fried, \emph{Proof of a conjecture stated in A355372},
+Lemma~1 and Theorem~1, pp.~1--2; linked and credited in
+OEIS A355372 on December~17, 2025.
+\url{https://oeis.org/A355372/a355372_1.pdf}.
+
+\bibitem{rows}
+OEIS fixed-row entries: A029767, Formula (Mathar, January~8, 2013);
+A103213, Formula (Alcover, November~28, 2013; Israel, June~19, 2015);
+A355171, Formula (Kotesovec, February~17, 2024);
+A355372, A355407 and A355414, Comments and Formula
+(Tebni recurrence in A355372, March~20, 2026;
+Mathar recurrence in A355414, July~27, 2022).
+\url{https://oeis.org/A029767}; \url{https://oeis.org/A103213};
+\url{https://oeis.org/A355171}; \url{https://oeis.org/A355372};
+\url{https://oeis.org/A355407}; \url{https://oeis.org/A355414}.
+Also A355258, Formula (Kotesovec, July~1, 2022; Meya, April~12, 2024),
+\url{https://oeis.org/A355258}.
+
+\bibitem{leanmain}
+\texttt{TebniA355257Divisibility.lean}, revision
+\texttt{3978330935ee256403f739686c6ae335ea620e68}.
+\url{https://github.com/the-omega-institute/trureturing/blob/3978330935ee256403f739686c6ae335ea620e68/D5/S3/Arith/Congruence/TebniA355257Divisibility.lean}.
+
+\bibitem{leanquotient}
+\texttt{TebniA355257Quotient.lean}, same revision.
+\url{https://github.com/the-omega-institute/trureturing/blob/3978330935ee256403f739686c6ae335ea620e68/D5/S3/Arith/Congruence/TebniA355257Quotient.lean}.
+
+\bibitem{bm2017}
+A. Benyattou and M. Mihoubi, \emph{Curious congruences related to the
+Bell polynomials}, Quaestiones Mathematicae \textbf{41} (2018), no.~3,
+437--448; published online November~8, 2017. Section~4, Proposition~8
+(online-first pp.~6--7).
+\url{https://doi.org/10.2989/16073606.2017.1391349}.
+
+\bibitem{thesis}
+A. Benyattou, \emph{Congruences pour quelques suites de nombres
+combinatoires}, doctoral thesis, Universit\'e des Sciences et de la
+Technologie Houari Boumedi\`ene, 2018; public defense November~27, 2018.
+Section~2.4, Proposition~27, pp.~48--49.
+\url{https://dspace.usthb.dz/bitstreams/db5bb0a7-c4d0-49be-961b-f7a3e088c379/download}.
+
+\bibitem{bm2021}
+A. Benyattou and M. Mihoubi, \emph{Congruences related to Bell
+polynomials via a differential operator}, Miskolc Mathematical Notes
+\textbf{22} (2021), no.~2, 571--579. Section~3, Proposition~2, p.~576.
+\url{https://doi.org/10.18514/MMN.2021.3601}.
+
+\bibitem{nyul}
+G. Nyul and G. R\'acz, \emph{The $r$-Lah numbers}, Discrete Mathematics
+\textbf{338} (2015), 1660--1666. Theorems~3.7 and~3.10.
+\url{https://doi.org/10.1016/j.disc.2014.03.029}.
+
+\bibitem{kargin}
+L. Karg{\i}n and M. Can, \emph{Harmonic number identities via polynomials
+with $r$-Lah coefficients}, Comptes Rendus Math\'ematique \textbf{358}
+(2020), no.~5, 535--550; published online September~14, 2020.
+Section~2, (5)--(6), p.~537.
+\url{https://doi.org/10.5802/crmath.53}.
+\end{thebibliography}
+
+\medskip\noindent
+\textbf{License.} Creative Commons Attribution 4.0 International
+(CC BY 4.0).
+\end{document}

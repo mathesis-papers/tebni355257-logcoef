@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integers",
+  "rows": [
+    0,
+    30
+  ],
+  "degrees": [
+    0,
+    200
+  ],
+  "coefficient_cells": 6231,
+  "prime_columns": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97,
+    101,
+    103,
+    107,
+    109,
+    113,
+    127,
+    131,
+    137,
+    139,
+    149,
+    151,
+    157,
+    163,
+    167,
+    173,
+    179,
+    181,
+    191,
+    193,
+    197,
+    199
+  ],
+  "prime_quotient_cases": 1426,
+  "polynomial_identity_cases": 372,
+  "A355259_displayed_rows": 9,
+  "alternate_binomial_cases": 6200,
+  "homogeneous_recurrence_cases": 6138,
+  "finite_difference_cases": 372,
+  "integer_parameter_ranges": {
+    "base": [
+      -3,
+      5
+    ],
+    "row": [
+      -6,
+      6
+    ],
+    "degree": [
+      0,
+      24
+    ]
+  },
+  "integer_parameter_cells": 2925,
+  "integer_parameter_prime_cases": 1053,
+  "A355258_formula_cases": 23,
+  "Lah_identification_cases": 264,
+  "Lah_polynomial_congruence_cases": 480,
+  "checks": [
+    "coefficient sum equals differential recurrence",
+    "column residue and divisibility equivalence",
+    "exceptional column four has residue two",
+    "prime residue minus one",
+    "exact prime quotient integrality and residue",
+    "polynomial identities and published coefficient rows",
+    "alternate binomial formula and homogeneous recurrence",
+    "column finite difference identity",
+    "integer parameter coefficient, divisibility and quotient formulas",
+    "Lah identification and earlier polynomial congruence"
+  ],
+  "scope": "finite checks; universal statements have written proofs in note.tex"
+}
