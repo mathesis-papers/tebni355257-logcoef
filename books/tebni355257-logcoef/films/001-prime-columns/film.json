@@ -1,0 +1,27 @@
+{
+  "duration": "1:14",
+  "id": "001-prime-columns",
+  "lean": [],
+  "narration": {
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "language": "en",
+    "voice": "af_heart"
+  },
+  "outputs": {
+    "cover": "tebni355257-logcoef_001_cover.jpg",
+    "narrated_720p": "tebni355257-logcoef_001_720p_narrated.mp4"
+  },
+  "publication_basis": "pinned",
+  "released": "2026-11-24",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "subject": "https://github.com/the-omega-institute/trureturing",
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "summary": "Compare divisibility by a prime and by one less than that prime, and see why different terms in the same sum survive.",
+  "summary_zh": "比较模质数与模质数减一，看看同一个和式为何留下不同的项。",
+  "title": "What survives at a prime column?",
+  "title_zh": "质数列中，哪一项留下？"
+}

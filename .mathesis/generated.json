@@ -9,11 +9,11 @@
     "manuscript/README.md",
     "manuscript/metadata.json",
     "manuscript/note.tex",
+    "manuscript/original-source.archive",
     "manuscript/verification.json",
     "manuscript/verify.py",
     "paper.json",
-    "paper.pdf",
-    "source.archive"
+    "paper.pdf"
   ],
   "generator_version": "0.1.0",
   "sha256": {
@@ -22,15 +22,15 @@
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
     "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
     "README.md": "7159bfc67c04cf9c427751ad8973663f8eb1446e31903872cd1fe3d6bd8cf273",
-    "formalization/nodes.json": "73b9e78513da22f896f4c76e2452134f88a32d40bc6965e3e91b2c7a285b40b7",
+    "formalization/nodes.json": "df9e973efd1551505625c19440bad533d82d0691c24bf00f0c0b571bcc7a00b1",
     "manuscript/README.md": "40c3da8ca2435dc4d4f870acefa9e8f1fbdd47996e15e094a5e1a7ba2dbec050",
     "manuscript/metadata.json": "05b1e5fe07998cbe80c884e1ee2f0675be28bc7db5413a4f12de51e2d0aa5374",
     "manuscript/note.tex": "b70dd62696c2ed312c04f28c3f09478ff306851e85d686f547122e82d1465100",
+    "manuscript/original-source.archive": "9e5fb9f4f588068fa590b5dc13f30761783e7cfd6954272e9c01e28264400bc4",
     "manuscript/verification.json": "54761b83509b5faff71e3f7a3c3a18dca4b27a0afd0c7b2c569cd4dfb7c3a5d6",
     "manuscript/verify.py": "0b13a5cc6511a60fe4be500a3878112618ca4d4d9d1b47c382b8d7f0ceb3e4e9",
-    "paper.json": "0e229a3664a068d5a1b2e173f65899d98824329059794ff2e1fdd15bd8a283ed",
-    "paper.pdf": "f90a499310d8e3d058305d673c9c9e43830b40faaefa8e5c33ac45548362e904",
-    "source.archive": "9e5fb9f4f588068fa590b5dc13f30761783e7cfd6954272e9c01e28264400bc4"
+    "paper.json": "2d2826c73bda4aca8eb8e379be76b6d3d29a16bf74e3b0ceb61c694bb413c756",
+    "paper.pdf": "f90a499310d8e3d058305d673c9c9e43830b40faaefa8e5c33ac45548362e904"
   },
-  "snapshot_identity": "0bd9facfd44cdc7ec39c5fc6e02e9a8b70346b519b97f3d1d00c534d7a6475d3"
+  "snapshot_identity": "c513551932fa0da1e887f7c4238ab26cfe7a9bdbafdb767088e156d76d7bef37"
 }

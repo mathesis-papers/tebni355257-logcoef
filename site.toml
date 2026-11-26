@@ -1,0 +1,14 @@
+[site]
+repo = "mathesis-papers/tebni355257-logcoef"
+base_url = "https://papers.trureturing.org/tebni355257-logcoef/"
+post_build = ["python3", "-c", "from pathlib import Path\nimport runpy\nscript = Path(\"docs/layer-mathesis/scripts/site.py\")\nif script.is_file():\n    runpy.run_path(str(script), run_name=\"__main__\")\nelse:\n    print(\"Mathesis post-build skipped: layer script is absent from repository being built\")\n"]
+languages = ["zh", "en"]
+[site.title]
+zh = "Sharp quotients and column polynomials: alternative proofs for OEIS A355257, revision 37, Comments, after Benyattou-Mihoubi (2017) and Fried (2025)"
+en = "Sharp quotients and column polynomials: alternative proofs for OEIS A355257, revision 37, Comments, after Benyattou-Mihoubi (2017) and Fried (2025)"
+[trureturing]
+repo = "the-omega-institute/trureturing"
+branch = "dev"
+[books]
+order = ["tebni355257-logcoef"]
+hide = []

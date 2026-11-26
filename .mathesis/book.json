@@ -1,0 +1,104 @@
+{
+  "book": "tebni355257-logcoef",
+  "pending_claims": [],
+  "results": {
+    "column-identities": {
+      "claim": "collected:tebni355257-logcoef:2:s5",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "none",
+      "formalization_request": {
+        "label": "Corollary 5 — A355257 alternate sum and column identities",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/587"
+      },
+      "gids": []
+    },
+    "column-interpolation": {
+      "claim": "collected:tebni355257-logcoef:2:s3",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "none",
+      "formalization_request": {
+        "label": "Corollary 3 — A355259 column interpolation",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/586"
+      },
+      "gids": []
+    },
+    "composite-factorial": {
+      "claim": "collected:tebni355257-logcoef:2:s2",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "none",
+      "gids": []
+    },
+    "negative-row": {
+      "claim": "collected:tebni355257-logcoef:2:s9",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "none",
+      "formalization_request": {
+        "label": "Corollary 9 — A355258 two formulas for row minus one",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/591"
+      },
+      "gids": []
+    },
+    "row-growth": {
+      "claim": "collected:tebni355257-logcoef:2:s7",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "none",
+      "formalization_request": {
+        "label": "Corollary 7 — A355257 fixed-row asymptotic",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/589"
+      },
+      "gids": []
+    },
+    "row-recurrences": {
+      "claim": "collected:tebni355257-logcoef:2:s6",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "none",
+      "formalization_request": {
+        "label": "Corollary 6 — A355257 fixed-row recurrences",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/588"
+      },
+      "gids": []
+    },
+    "sharp-arithmetic": {
+      "claim": "collected:tebni355257-logcoef:2:s1",
+      "compared_public_gid": "D5/S3/Arith/Congruence/TebniA355257Quotient.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "special case",
+      "formalization_request": {
+        "label": "Theorem 1 — Sharp arithmetic via the signed-parameter theorem",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/590"
+      },
+      "gids": []
+    },
+    "signed-parameters": {
+      "claim": "collected:tebni355257-logcoef:2:s8",
+      "compared_public_gid": "D5/S3/Arith/Congruence/TebniA355257Divisibility.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "special case",
+      "formalization_request": {
+        "label": "Corollary 8 — Signed logarithmic coefficients and sharp prime quotients",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/590"
+      },
+      "gids": []
+    },
+    "six-rows": {
+      "claim": "collected:tebni355257-logcoef:2:s4",
+      "compared_public_gid": "D5/S3/Arith/Congruence/TebniA355257Divisibility.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "comparison_verdict": "special case",
+      "gids": []
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "Sharp quotients and column polynomials: alternative proofs for OEIS A355257, revision 37, Comments, after Benyattou-Mihoubi (2017) and Fried (2025)",
+    "zh": "Sharp quotients and column polynomials: alternative proofs for OEIS A355257, revision 37, Comments, after Benyattou-Mihoubi (2017) and Fried (2025)"
+  },
+  "version": 2,
+  "work": "tebni355257-logcoef"
+}

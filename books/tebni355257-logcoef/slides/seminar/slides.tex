@@ -1,0 +1,76 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{What survives at a prime column?}
+\author{Based on the paper by Haobo Ma and Wenlin Zhang}
+\institute{Haobo Ma: ChronoAI Pte Ltd, Singapore\\Wenlin Zhang: National University of Singapore; ChronoAI Pte Ltd, Singapore}
+\date{Paper version 2 \quad \href{https://doi.org/10.5281/zenodo.24406609}{10.5281/zenodo.24406609}}
+\begin{document}
+% Manuscript: Overview
+\begin{frame}
+  \titlepage
+  \note{Introduce this as exposition of Ma and Zhang's paper, not a novelty claim for the prime residue. The table is indexed by row $n$ and column $k$, starting at zero.}
+\end{frame}
+% Manuscript: Contents
+\begin{frame}{Outline}
+  \tableofcontents
+  \note{Start with three numbers, then explain why different divisors select different terms. Finish with the independent consequence for interpolation.}
+\end{frame}
+\section{The coefficient table}
+% Manuscript: Section 1 and Equation (1)
+\begin{frame}{One column, two questions}
+  \[\begin{array}{c|rrr}n&0&1&2\\\hline A(n,3)&14&29&50\\ A(n,4)&90&206&406\end{array}\]
+  All entries in the first displayed row are $-1$ modulo $3$.
+  Which can also be divided by $3-1$?
+  \note{Ask the audience to divide by $3$ and then by $2$. Keep the two tests distinct. The columns of the original table become rows in this small display.}
+\end{frame}
+% Manuscript: Section 2, coefficient sum
+\begin{frame}{A sum with integer terms}
+  \[L(x)=\log\!\frac{1-x}{1-2x},\qquad B_n(t)=[x^t](1-x)^{-n}.\]
+  \[A(n,k)=k![x^k](1-x)^{-n}L(x)
+    =\sum_{j=1}^k\frac{k!}{j}(2^j-1)B_n(k-j).\]
+  The factors $j$ divide $k!$; $B_n(0)=1$ and $B_n(1)=n$.
+  \note{Show how two terms whose degrees add to $k$ contribute to the coefficient. Empty sums give $A(n,0)=0$. At $k=3$ the three contributions are $3n(n+1)$, $9n$, and $14$.}
+\end{frame}
+\section{Two different divisors}
+% Manuscript: Theorem 1 parts 1 and 2; Lemma 2
+\begin{frame}{Modulo the column number}
+  \[A(n,k)\equiv(k-1)!(2^k-1)\pmod k\qquad(k\ge1).\]
+  \begin{itemize}
+  \item Prime $k=p$: Wilson and Fermat give $-1$.
+  \item Composite $k\ne4$: the factorial absorbs $k$.
+  \item At $k=4$: $3!(2^4-1)=90\equiv2\pmod4$.
+  \end{itemize}
+  \note{For $j<k$, cancel $j$ in $k!$ without removing $k$. For a nonsquare factor pair, both factors occur; for a square $a^2$ with $a\ge3$ use $a$ and $2a$. Column $1$ passes the divisibility test and is not prime.}
+\end{frame}
+% Manuscript: Theorem 1 part 3 and Section 3
+\begin{frame}{Modulo one less than a prime}
+  \[A(n,p)\equiv p(p-2)!(2^{p-1}-1)n\pmod{p-1}.\]
+  \[\begin{array}{c|l}p&\text{When }A(n,p)/(p-1)\text{ is integral}\\\hline
+  2\text{ or }p\ge7&\text{Every row}\\3,5&\text{Exactly the even rows}\end{array}\]
+  Every integral quotient is $1$ modulo $p$.
+  \note{For odd $p$, all but $j=p-1$ vanish, leaving a factor $B_n(1)=n$. The residues at $3$ and $5$ are $n$ modulo $2$ and $2n$ modulo $4$. The factorial argument covers $p\ge7$, and $p=2$ has divisor $1$. Multiply an integral quotient by $p-1\equiv-1\pmod p$ to see why its residue is $1$.}
+\end{frame}
+\section{Interpolation and scope}
+% Manuscript: Section 4, Corollary 3
+\begin{frame}{Why the first entries determine the column}
+  Replace $B_n(t)$ by $n^{\overline t}/t!$ in the same sum.
+  Only $j=1$ reaches degree $k-1$; its leading coefficient is $k$.
+  \[P_3(z)=3z^2+12z+14.\]
+  \begin{bookresult}{column-interpolation}
+  The first $k$ rows determine column $k\ge1$ as a polynomial of degree $k-1$.
+  \end{bookresult}
+  \note{If two degree-at-most-$k-1$ polynomials matched all $k$ points, their difference would have too many roots. The index in A355259 is shifted: its row $k$ reconstructs column $k+1$.}
+\end{frame}
+% Manuscript: Sections 1, 5--7 and references
+\begin{frame}{What is covered, and by whom?}
+  \begin{itemize}
+  \item Luschny and Tebni: A355257, revision 37; Tebni's quotient and interpolation questions.
+  \item Benyattou--Mihoubi (online 2017), Proposition 8; Fried (2025), row $3$.
+  \item Lean covers the integer witness, prime residue, divisibility away from $4$, and the even-row quotient.
+  \item The paper's written arguments supply the sharp remaining cases and the extensions.
+  \end{itemize}
+  \note{The row difference propagates the earlier prime congruence. The Lean quotient theorem assumes an even row; it does not state the odd-row classification. The asymptotic statement holds for a fixed row. The signed integer extension and the row-minus-one formulas are separate statements.}
+\end{frame}
+\appendix
+\FormalVerification
+\end{document}

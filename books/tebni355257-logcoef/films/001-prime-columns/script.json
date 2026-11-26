@@ -1,0 +1,26 @@
+{
+  "voice": "af_heart",
+  "speed": 0.94,
+  "say": {},
+  "music": {"bpm": 80, "progression": "a-minor"},
+  "scenes": [
+    {"id": "open", "name": "TWO DIVISORS", "lead": 0.8, "tail": 0.6, "lines": [
+      ["Column three begins with fourteen, twenty-nine, and fifty. All leave remainder two when divided by three.", "第 3 列从 14、29、50 开始。它们除以 3 都余 2。"],
+      ["But try dividing by two instead: the middle number fails. What changed?", "但改为除以 2，中间的数就不能整除。哪里变了？"]
+    ]},
+    {"id": "last", "name": "THE LAST TERM", "lead": 0.5, "tail": 0.7, "lines": [
+      ["Each entry is a sum. In column three its three pieces are three times n times n plus one, nine n, and fourteen.", "每个表项都是一个和。第 3 列的三项依次为 3n(n+1)、9n、14。"],
+      ["Modulo three, the first two pieces vanish. The last piece is fourteen, independent of the row.", "模 3 时前两项消失。最后一项是 14，与行号无关。"],
+      ["In any column, every earlier term keeps the column number as a factor in its factorial.", "任意一列中，较早各项的阶乘都保留着列号这个因子。"]
+    ]},
+    {"id": "penultimate", "name": "THE NEXT-TO-LAST TERM", "lead": 0.5, "tail": 0.7, "lines": [
+      ["Modulo two, the first and last pieces vanish instead. The middle piece, nine n, has the same parity as n.", "模 2 时，第一项和末项消失。中间一项 9n 的奇偶与 n 相同。"],
+      ["For a prime column, this row-dependent term can obstruct division by one less than the prime only at three and five.", "在质数列中，这个随行变化的项只在质数 3 和 5 时可能妨碍除以质数减一。"],
+      ["At seven and above the remaining factorial already contains enough factors. At two the divisor is just one.", "从 7 开始，留下的阶乘已经有足够的因子；在 2 时除数只是 1。"]
+    ]},
+    {"id": "close", "name": "THE PAYOFF", "lead": 0.5, "tail": 1.5, "lines": [
+      ["Odd rows fail at three and five, but work at all other primes. Every integral quotient leaves remainder one modulo its prime.", "奇数行在 3 和 5 处失败，在其他质数列则成功。每个整数商除以对应质数都余 1。"],
+      ["The same sum also explains why the column is a polynomial in the row number.", "同一个和式还解释了为什么每一列都是行号的多项式。"]
+    ]}
+  ]
+}

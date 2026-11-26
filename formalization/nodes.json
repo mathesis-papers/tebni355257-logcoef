@@ -26,7 +26,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -66,7 +66,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -106,7 +106,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -146,7 +146,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -186,7 +186,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -226,7 +226,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -266,7 +266,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -306,7 +306,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
@@ -346,7 +346,7 @@
         "\\Nzero": "\\mathbb{Z}_{\\geq0}",
         "\\rise": "#1^{\\overline{#2}}"
       },
-      "next_step": "Formalization work is coordinated through the shared requests.",
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
       "proof_basis": null,
       "proof_state": "preparing",
       "receipt": null,
